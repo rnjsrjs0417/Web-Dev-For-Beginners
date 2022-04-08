@@ -47,7 +47,7 @@ jobs:
        
                   
       - name: compare_and_update
-        if: equals($MAINCOMMIT, $UPSTREAM)==0
+        if: ${{ env.MAINCOMMIT != env.UPSTREAM }}
         run: |   
           echo $MAINCOMMIT 
           echo $UPSTREAM
@@ -60,6 +60,6 @@ jobs:
           git push origin
           
       - name: not_update
-        if: ${{ env.MAINCOMMIT }} ==${{ env.UPSTREAM }}
+        if: ${{ env.MAINCOMMIT == env.UPSTREAM }}
         run: |
           echo it already up to date
