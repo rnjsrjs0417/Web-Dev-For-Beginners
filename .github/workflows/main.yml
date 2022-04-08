@@ -47,11 +47,9 @@ jobs:
           
       - name: env_set
         run: |
-          read maincommit3 
-          git rev-parse main
+          git rev-parse main | read maincommit3 
           export maincommit4=$maincommit3
-          read upstream3
-          git rev-parse upstream/main
+          git rev-parse upstream/main | read upstream3
           export upstream4=$upstream3
        
                   
