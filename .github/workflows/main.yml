@@ -47,7 +47,7 @@ jobs:
        
                   
       - name: compare_and_update
-        if: equals(${{ env.MAINCOMMT }}, ${{ env.UPSTREAM }})==0
+        if: equals($MAINCOMMIT, $UPSTREAM)==0
         run: |   
           echo $MAINCOMMIT
           echo $UPSTREAM
