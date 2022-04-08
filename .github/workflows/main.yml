@@ -37,7 +37,7 @@ jobs:
           
       - name: fetch,hash_value_set
         run: |
-          git pull origin
+          git pull origin main
           git branch -a
           git remote add upstream https://github.com/microsoft/Web-Dev-For-Beginners.git
           git fetch upstream main
