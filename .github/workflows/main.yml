@@ -58,6 +58,6 @@ jobs:
           git push origin
           
       - name: not_update
-        if: MAINCOMMIT==UPSTREAM
+        if: ${{ env.MAINCOMMIT }} ==${{ env.UPSTREAM }}
         run: |
           echo it already up to date
