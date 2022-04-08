@@ -50,7 +50,7 @@ jobs:
           echo ${{ env.UPSTREAM }}
                   
       - name: compare_and_update
-        if: ${{ env.MAINCOMMT }}!= ${{ env.UPSTREAM }}
+        if: equals(${{ env.MAINCOMMT }}, ${{ env.UPSTREAM }})==0
         run: |
           echo sync …
           git merge upstream/main
