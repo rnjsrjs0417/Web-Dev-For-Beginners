@@ -37,12 +37,8 @@ jobs:
           
       - name: fetch,hash_value_set
         run: |
-          git pull origin main
-          git branch -a
           git remote add upstream https://github.com/microsoft/Web-Dev-For-Beginners.git
           git fetch upstream main
-          echo "--"
-          git branch -a
           maincommit2=$(git rev-parse main)
           upstream2=$(git rev-parse upstream/main)
           MAINCOMMIT=$maincommit2
@@ -52,7 +48,7 @@ jobs:
         if: env.MAINCOMMIT!=env.UPSTREAM
         run: |
           echo sync …
-          git merge upstream/main —allow-unrelated-histories
+          git merge upstream/main
           git add .
           git commit -m "update"
           git push origin
