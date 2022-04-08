@@ -46,9 +46,10 @@ jobs:
           UPSTREAM=$upstream2
           echo $MAINCOMMIT
           echo $UPSTREAM
+          echo ${{ UPSTREAM }}
                   
       - name: compare_and_update
-        if: MAINCOMMIT!=UPSTREAM
+        if: ${{ env.MAINCOMMT }}!= ${{ env.UPSTREAM }}
         run: |
           echo sync …
           git merge upstream/main
