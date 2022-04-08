@@ -46,7 +46,7 @@ jobs:
           UPSTREAM=$upstream2
           echo $MAINCOMMIT
           echo $UPSTREAM
-          echo ${{ UPSTREAM }}
+          echo ${{ env.UPSTREAM }}
                   
       - name: compare_and_update
         if: ${{ env.MAINCOMMT }}!= ${{ env.UPSTREAM }}
