@@ -49,7 +49,7 @@ jobs:
       - name: compare_and_update
         if: equals($MAINCOMMIT, $UPSTREAM)==0
         run: |   
-          echo $MAINCOMMIT
+          echo $MAINCOMMIT 
           echo $UPSTREAM
           echo ${{ env.MAINCOMMIT }}
           echo ${{ env.UPSTREAM }}
