@@ -44,10 +44,19 @@ jobs:
           upstream2=$(git rev-parse upstream/main)
           MAINCOMMIT=$maincommit2
           UPSTREAM=$upstream2
+          
+      - name: env_set
+        run: |
+          read maincommit3 
+          git rev-parse main
+          export maincommit4=$maincommit3
+          read upstream3
+          git rev-parse upstream/main
+          export upstream4=$upstream3
        
                   
       - name: compare_and_update
-        if: ${{ env.MAINCOMMIT != env.UPSTREAM }}
+        if: ${{ env.maincommit4 != env.upstream4 }}
         run: |   
           echo $MAINCOMMIT 
           echo $UPSTREAM
@@ -60,6 +69,6 @@ jobs:
           git push origin
           
       - name: not_update
-        if: ${{ env.MAINCOMMIT == env.UPSTREAM }}
+        if: ${{ env.maincommit4 == env.upstream4 }}
         run: |
           echo it already up to date
