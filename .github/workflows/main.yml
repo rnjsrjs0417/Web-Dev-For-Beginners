@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
        MAINCOMMIT: $(git rev-parse main)
-       UPSTREAM: $(git rev-parse origin/main)
+       UPSTREAM: $(git rev-parse upstream/main)
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
