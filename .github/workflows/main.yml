@@ -44,6 +44,8 @@ jobs:
           upstream2=$(git rev-parse upstream/main)
           MAINCOMMIT=$maincommit2
           UPSTREAM=$upstream2
+          echo $MAINCOMMIT
+          echo $UPSTREAM
                   
       - name: compare_and_update
         if: env.MAINCOMMIT!=env.UPSTREAM
