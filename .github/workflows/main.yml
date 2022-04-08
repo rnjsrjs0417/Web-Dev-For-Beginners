@@ -39,6 +39,7 @@ jobs:
         run: |
           git remote add upstream https://github.com/microsoft/Web-Dev-For-Beginners.git
           git fetch upstream main
+          git checkout main
           maincommit2=$(git rev-parse main)
           upstream2=$(git rev-parse upstream/main)
           MAINCOMMIT=$maincommit2
