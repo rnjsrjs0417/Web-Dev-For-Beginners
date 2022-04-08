@@ -48,7 +48,7 @@ jobs:
           echo $UPSTREAM
                   
       - name: compare_and_update
-        if: ${{ env.MAINCOMMIT == env.UPSTREAM }}
+        if: MAINCOMMIT!=UPSTREAM
         run: |
           echo sync …
           git merge upstream/main
@@ -57,6 +57,6 @@ jobs:
           git push origin
           
       - name: not_update
-        if: env.MAINCOMMIT==env.UPSTREAM
+        if: MAINCOMMIT==UPSTREAM
         run: |
           echo it already up to date
