@@ -44,14 +44,15 @@ jobs:
           upstream2=$(git rev-parse upstream/main)
           MAINCOMMIT=$maincommit2
           UPSTREAM=$upstream2
+       
+                  
+      - name: compare_and_update
+        if: equals(${{ env.MAINCOMMT }}, ${{ env.UPSTREAM }})==0
+        run: |   
           echo $MAINCOMMIT
           echo $UPSTREAM
           echo ${{ env.MAINCOMMIT }}
           echo ${{ env.UPSTREAM }}
-                  
-      - name: compare_and_update
-        if: equals(${{ env.MAINCOMMT }}, ${{ env.UPSTREAM }})==0
-        run: |
           echo sync …
           git merge upstream/main
           git add .
